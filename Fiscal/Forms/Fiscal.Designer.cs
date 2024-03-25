@@ -1,6 +1,6 @@
 ﻿namespace Fiscal
 {
-    partial class Form1
+    partial class Fiscal
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fiscal));
             this.groupBoxSelecaoArquivo = new System.Windows.Forms.GroupBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.groupBoxStatus = new System.Windows.Forms.GroupBox();
@@ -230,7 +230,7 @@
             this.btnConfiguracoes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConfiguracoes.UseVisualStyleBackColor = false;
             // 
-            // Form1
+            // Fiscal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -244,7 +244,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "Fiscal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fiscal SG Master | | SGBR SISTEMAS LTDA";
             this.Load += new System.EventHandler(this.Form1_Load);

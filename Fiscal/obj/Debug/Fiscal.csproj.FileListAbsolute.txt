@@ -2,7 +2,6 @@ C:\Users\ramon\source\repos\Fiscal\Fiscal\bin\Debug\Fiscal.exe.config
 C:\Users\ramon\source\repos\Fiscal\Fiscal\bin\Debug\Fiscal.exe
 C:\Users\ramon\source\repos\Fiscal\Fiscal\bin\Debug\Fiscal.pdb
 C:\Users\ramon\source\repos\Fiscal\Fiscal\obj\Debug\Fiscal.csproj.AssemblyReference.cache
-C:\Users\ramon\source\repos\Fiscal\Fiscal\obj\Debug\Fiscal.Form1.resources
 C:\Users\ramon\source\repos\Fiscal\Fiscal\obj\Debug\Fiscal.Properties.Resources.resources
 C:\Users\ramon\source\repos\Fiscal\Fiscal\obj\Debug\Fiscal.csproj.GenerateResource.cache
 C:\Users\ramon\source\repos\Fiscal\Fiscal\obj\Debug\Fiscal.csproj.CoreCompileInputs.cache
@@ -136,3 +135,5 @@ C:\Users\SGBr\source\repos\Fiscal\Fiscal\obj\Debug\Fiscal.csproj.CoreCompileInpu
 C:\Users\SGBr\source\repos\Fiscal\Fiscal\obj\Debug\Fiscal.csproj.CopyComplete
 C:\Users\SGBr\source\repos\Fiscal\Fiscal\obj\Debug\Fiscal.exe
 C:\Users\SGBr\source\repos\Fiscal\Fiscal\obj\Debug\Fiscal.pdb
+C:\Users\ramon\source\repos\Fiscal\Fiscal\obj\Debug\Fiscal.Fiscal.resources
+C:\Users\ramon\source\repos\Fiscal\Fiscal\obj\Debug\Fiscal.Forms.Sped.resources

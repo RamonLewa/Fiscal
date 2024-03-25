@@ -33,6 +33,8 @@ namespace Fiscal
             InitializeComponent();
         }
 
+        #region PersonalizaForm
+
         [DllImport("DwmApi")]
 
 
@@ -56,7 +58,9 @@ namespace Fiscal
             Color.Black, BORDER_SIZE, ButtonBorderStyle.Solid);
         }
 
-        private  void Contabilista_Load(object sender, EventArgs e)
+        #endregion
+
+        private void Contabilista_Load(object sender, EventArgs e)
         {
             btnGravar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnGravar.Width, btnGravar.Height, 4, 4));
 
@@ -92,5 +96,3 @@ namespace Fiscal
         }
     }
 }
-
-

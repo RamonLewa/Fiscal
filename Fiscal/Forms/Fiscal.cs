@@ -1,4 +1,5 @@
-﻿using Fiscal.Properties;
+﻿using Fiscal.Forms;
+using Fiscal.Properties;
 using System;
 using System.Drawing;
 using System.IO;
@@ -8,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Fiscal
 {
-    public partial class Form1 : Form
+    public partial class Fiscal : Form
     {
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -24,7 +25,7 @@ namespace Fiscal
 
         private const int BORDER_SIZE = 4;
 
-        public Form1()
+        public Fiscal()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
@@ -140,30 +141,8 @@ namespace Fiscal
 
         private void btnSpedFiscal_Click(object sender, EventArgs e)
         {
-            string registro00 = registro0000(); 
-            
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-
-            saveFileDialog1.Filter = "Arquivos de Texto (*.txt)|*.txt";
-            saveFileDialog1.Title = "Salvar Arquivo Sintegra";
-            saveFileDialog1.FileName = "SPED" + DateTime.Now.ToString("yyyyMMdd");
-            saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string caminhoArquivo = saveFileDialog1.FileName;
-
-                try
-                {
-                    File.WriteAllText(caminhoArquivo, registro00);
-
-                    MessageBox.Show("SPED gerado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ocorreu um erro ao gerar o arquivo SPED: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            Sped sped = new Sped();
+            sped.ShowDialog();
         }
     }
 }

@@ -168,27 +168,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contabilista.cs">
+    <Compile Include="BlocosSped.cs" />
+    <Compile Include="Emitente.cs" />
+    <Compile Include="Forms\Contabilista.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Contabilista.Designer.cs">
+    <Compile Include="Forms\Contabilista.Designer.cs">
       <DependentUpon>Contabilista.cs</DependentUpon>
     </Compile>
     <Compile Include="DadoContabilista.cs" />
     <Compile Include="DataContext.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\Fiscal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\Fiscal.Designer.cs">
+      <DependentUpon>Fiscal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sped.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sped.Designer.cs">
+      <DependentUpon>Sped.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Contabilista.resx">
+    <EmbeddedResource Include="Forms\Contabilista.resx">
       <DependentUpon>Contabilista.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Fiscal.resx">
+      <DependentUpon>Fiscal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sped.resx">
+      <DependentUpon>Sped.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
