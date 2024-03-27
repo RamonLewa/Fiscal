@@ -30,7 +30,7 @@ namespace Fiscal
         public string Bairro { get; set; }
 
         [DisplayName("Código cidade")]
-        public int CodCidade { get; set; }
+        public int? CodCidade { get; set; }
 
         [DisplayName("Cidade")]
         public string Cidade { get; set; }
@@ -51,7 +51,7 @@ namespace Fiscal
         public string IM { get; set; }
 
         [DisplayName("Data e hora cadastro")]
-        public DateTime DataHoraCadastro { get; set; }
+        public DateTime? DataHoraCadastro { get; set; }
 
         [DisplayName("Obs")]
         public string Obs { get; set; }
@@ -78,7 +78,7 @@ namespace Fiscal
         public string CRT { get; set; }
 
         [DisplayName("Data fundação empresa")]
-        public DateTime DataFundacaoEmpresa { get; set; }
+        public DateTime? DataFundacaoEmpresa { get; set; }
 
         [DisplayName("Logotipo")]
         public string Logotipo { get; set; }
@@ -96,10 +96,10 @@ namespace Fiscal
         public string CodCidadeIBGE { get; set; }
 
         [DisplayName("Data movimento")]
-        public DateTime DataMovimento { get; set; }
+        public DateTime? DataMovimento { get; set; }
 
         [DisplayName("Hora primeiro documento ECF")]
-        public DateTime HoraPrimeiroDocumentoECF { get; set; }
+        public TimeSpan? HoraPrimeiroDocumentoECF { get; set; }
 
         [DisplayName("SUFRAMA")]
         public string SUFRAMA { get; set; }
@@ -123,7 +123,7 @@ namespace Fiscal
         public string VerificadorFB { get; set; }
 
         [DisplayName("Data e hora verificação RFB")]
-        public DateTime DataHoraVerificacaoRFB { get; set; }
+        public DateTime? DataHoraVerificacaoRFB { get; set; }
 
         [DisplayName("Captcha RFB")]
         public string CaptchaRFB { get; set; }
@@ -141,10 +141,10 @@ namespace Fiscal
         public string SerialInstalado { get; set; }
 
         [DisplayName("Alíquota ISSQN")]
-        public decimal AliquotaISSQN { get; set; }
+        public decimal? AliquotaISSQN { get; set; }
 
         [DisplayName("Cód imposto ISS")]
-        public int CodImpostoISS { get; set; }
+        public int? CodImpostoISS { get; set; }
 
         [DisplayName("Nota legal")]
         public string NotaLegalDF { get; set; }
@@ -198,10 +198,10 @@ namespace Fiscal
         public string CNPJContador { get; set; }
 
         [DisplayName("Versão servidor")]
-        public int VersaoServidor { get; set; }
+        public int? VersaoServidor { get; set; }
 
         [DisplayName("Release servidor")]
-        public int ReleaseServidor { get; set; }
+        public int? ReleaseServidor { get; set; }
 
         [DisplayName("Chave PP")]
         public string ChavePP { get; set; }
@@ -213,16 +213,16 @@ namespace Fiscal
         public string MD5PAF { get; set; }
 
         [DisplayName("Perc ICMS")]
-        public decimal PercICMS { get; set; }
+        public decimal? PercICMS { get; set; }
 
         [DisplayName("OC")]
         public string OC { get; set; }
 
         [DisplayName("Date IE")]
-        public DateTime DataIE { get; set; }
+        public DateTime? DataIE { get; set; }
 
         [DisplayName("Número credenciamento")]
-        public int NumeroCredenciamento { get; set; }
+        public string NumeroCredenciamento { get; set; }
 
         [DisplayName("Possui IE substituto")]
         public string PossuiIESubstituto { get; set; }
@@ -267,7 +267,7 @@ namespace Fiscal
         public string Sincronizado { get; set; }
 
         [DisplayName("Cód atividade")]
-        public int CodAtividade { get; set; }
+        public int? CodAtividade { get; set; }
 
         [DisplayName("Empresa UUIDTEF")]
         public string EmpresaUUIDTEF { get; set; }
@@ -285,21 +285,21 @@ namespace Fiscal
 
             builder.Property(e => e.NomeFantasia).HasColumnName("NOMEFANTASIA");
 
-            builder.Property(e => e.RazaoSocial).HasColumnName("RAZAOSOCIAL").IsRequired();
+            builder.Property(e => e.RazaoSocial).HasColumnName("RAZAOSOCIAL");
 
-            builder.Property(e => e.Endereco).HasColumnName("ENDERECO").IsRequired();
+            builder.Property(e => e.Endereco).HasColumnName("ENDERECO");
 
-            builder.Property(e => e.Complemento).HasColumnName("COMPLEMENTO").IsRequired();
+            builder.Property(e => e.Complemento).HasColumnName("COMPLEMENTO");
 
             builder.Property(e => e.Bairro).HasColumnName("BAIRRO");
 
             builder.Property(e => e.CodCidade).HasColumnName("CODCIDADE");
 
-            builder.Property(e => e.Cidade).HasColumnName("CIDADE").IsRequired();
+            builder.Property(e => e.Cidade).HasColumnName("CIDADE");
 
-            builder.Property(e => e.UF).HasColumnName("UF").IsRequired();
+            builder.Property(e => e.UF).HasColumnName("UF");
 
-            builder.Property(e => e.CEP).HasColumnName("CEP").IsRequired();
+            builder.Property(e => e.CEP).HasColumnName("CEP");
 
             builder.Property(e => e.CNPJ).HasColumnName("CNPJ");
 
@@ -307,7 +307,7 @@ namespace Fiscal
 
             builder.Property(e => e.IM).HasColumnName("IM");
 
-            builder.Property(e => e.DataHoraCadastro).HasColumnName("DATAHORACADASTRO").IsRequired();
+            builder.Property(e => e.DataHoraCadastro).HasColumnName("DATAHORACADASTRO");
 
             builder.Property(e => e.Obs).HasColumnName("OBS");
 
@@ -329,13 +329,13 @@ namespace Fiscal
 
             builder.Property(e => e.Logotipo).HasColumnName("LOGOTIPO");
 
-            builder.Property(e => e.Pais).HasColumnName("PAIS").IsRequired();
+            builder.Property(e => e.Pais).HasColumnName("PAIS");
 
             builder.Property(e => e.Numero).HasColumnName("NUMERO");
 
             builder.Property(e => e.CodICMS).HasColumnName("CODICMS");
 
-            builder.Property(e => e.CodCidadeIBGE).HasColumnName("CODCIDADEIBGE").IsRequired();
+            builder.Property(e => e.CodCidadeIBGE).HasColumnName("CODCIDADEIBGE");
 
             builder.Property(e => e.DataMovimento).HasColumnName("DATAMOVIMENTO");
 
@@ -353,7 +353,7 @@ namespace Fiscal
 
             builder.Property(e => e.MD5).HasColumnName("MD5");
 
-            builder.Property(e => e.VerificadorFB).HasColumnName("VERIFICADORFB").IsRequired();
+            builder.Property(e => e.VerificadorFB).HasColumnName("VERIFICADORFB");
 
             builder.Property(e => e.DataHoraVerificacaoRFB).HasColumnName("DATAHORAVERIFICACAORFB");
 
@@ -361,7 +361,7 @@ namespace Fiscal
 
             builder.Property(e => e.RetornoRFB).HasColumnName("RETORNORFB");
 
-            builder.Property(e => e.AutorizadoUso).HasColumnName("AUTORIZADOUSO").IsRequired();
+            builder.Property(e => e.AutorizadoUso).HasColumnName("AUTORIZADOUSO");
 
             builder.Property(e => e.MD5CNPJRazaoUFRFB).HasColumnName("MD5CNPJRAZAOUFRFB");
 
@@ -425,17 +425,17 @@ namespace Fiscal
 
             builder.Property(e => e.PossuiIESubstituto).HasColumnName("POSSUIIESUBSTITUTO");
 
-            builder.Property(e => e.AtualizarEstoque).HasColumnName("ATUALIZARESTOQUE").IsRequired();
+            builder.Property(e => e.AtualizarEstoque).HasColumnName("ATUALIZARESTOQUE");
 
-            builder.Property(e => e.Comparando).HasColumnName("COMPARANDO").IsRequired();
+            builder.Property(e => e.Comparando).HasColumnName("COMPARANDO");
 
             builder.Property(e => e.EstabelecimentoUnico).HasColumnName("ESTABELECIMENTOUNICO");
 
             builder.Property(e => e.MD5CAD).HasColumnName("MD5CAD");
 
-            builder.Property(e => e.AtualizarDataVendaCompra).HasColumnName("ATUALIZARDATAVENDACOMPRA").IsRequired();
+            builder.Property(e => e.AtualizarDataVendaCompra).HasColumnName("ATUALIZARDATAVENDACOMPRA");
 
-            builder.Property(e => e.ReservarProdAluguelCondi).HasColumnName("RESERVARPRODALUGUELCONDI").IsRequired();
+            builder.Property(e => e.ReservarProdAluguelCondi).HasColumnName("RESERVARPRODALUGUELCONDI");
 
             builder.Property(e => e.AtualizarEstoqueParcial).HasColumnName("ATUALIZARESTOQUEPARCIAL");
 

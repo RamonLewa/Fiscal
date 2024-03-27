@@ -21,11 +21,14 @@ namespace Fiscal
     {
         public DbSet<DadoContabilista> DadoContabilista {  get; set; }
 
+        public DbSet<Emitente> Emitente { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             new DadoContabilistaEntityTypeConfiguration().Configure(modelBuilder.Entity<DadoContabilista>());
+            new EmitenteEntityTypeConfiguration().Configure(modelBuilder.Entity<Emitente>());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

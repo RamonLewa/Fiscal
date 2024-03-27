@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,45 +16,53 @@ namespace Fiscal
 
         //Sped sped = new Sped();
 
+
+
+        private string SoNumeros(string texto)
+        {
+            if(string.IsNullOrEmpty(texto))
+                return texto;
+
+            texto = Regex.Replace(texto, @"[^0-9]", "");
+
+            return texto;
+        }
         public string registro0000()
         {
             var registro = "";
 
-            using (var _context = new DataContext())
+            using (var dc = new DataContext())
             {
-                var registros = _context.DadoContabilista.Count();
+                IQueryable<Emitente> emitente = dc.Emitente.AsQueryable().Where(d => d.Controle == 1);
+                var dadosEmitente = emitente.ToList();
 
-                if (registros > 0)
+                foreach (var e in emitente)
                 {
-                    var contabilistas = _context.DadoContabilista.ToList();
-
-                    foreach (var contabilista in contabilistas)
+                    registro += "|" + "0000" + "|";
+                    registro += sped.txtLeiaute.Text + "|";
+                    if (sped.radioFinalidadeOrig.Checked)
                     {
-                        registro += "|" + "0000" + "|";
-                        registro += sped.txtLeiaute.Text + "|";
-                        if (sped.radioFinalidadeOrig.Checked)
-                        {
-                            registro += "0" + "|";
-                        }
-                        else if (sped.radioFinalidadeSubst.Checked)
-                        {
-                            registro += "1" + "|";
-                        }
-                        else
-                        {
-                            // Se nenhum RadioButton estiver marcado, faça algo ou emita um aviso
-                            MessageBox.Show("Por favor, selecione uma finalidade.");
-                        }
-                        registro += sped.dateTimePickerDataInicio.Value.Date.ToShortDateString().Replace("/", "") + "|";
-                        registro += sped.dateTimePickerDataFinal.Value.Date.ToShortDateString().Replace("/", "") + "|";
-                        registro += contabilista.CNPJ.PadRight(12) + "|";
-                        registro += contabilista.Nome.PadRight(12);
-
+                        registro += "0" + "|";
                     }
+                    else if (sped.radioFinalidadeSubst.Checked)
+                    {
+                        registro += "1" + "|";
+                    }
+                    else
+                    {
+                        // Se nenhum RadioButton estiver marcado, faça algo ou emita um aviso
+                        MessageBox.Show("Por favor, selecione uma finalidade.");
+                    }
+                    registro += sped.dateTimePickerDataInicio.Value.Date.ToShortDateString().Replace("/", "") + "|";
+                    registro += sped.dateTimePickerDataFinal.Value.Date.ToShortDateString().Replace("/", "") + "|";
+                    registro += e.RazaoSocial + "|";
+                    registro += SoNumeros(e.CNPJ) + "|";
+                    registro += e.CPF + "|";
                 }
-            }
-
+                
             return registro;
+
+            }
         }
     }
 }
