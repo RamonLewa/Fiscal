@@ -59,8 +59,8 @@
             this.groupBoxLeiaute = new System.Windows.Forms.GroupBox();
             this.txtLeiaute = new System.Windows.Forms.TextBox();
             this.groupAtividadeContribuinte = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButtonAtividadeIndustria = new System.Windows.Forms.RadioButton();
+            this.radioButtonAtividadeOutros = new System.Windows.Forms.RadioButton();
             this.groupBoxPerfil = new System.Windows.Forms.GroupBox();
             this.radioPerfilC = new System.Windows.Forms.RadioButton();
             this.radioPerfilB = new System.Windows.Forms.RadioButton();
@@ -410,8 +410,8 @@
             // 
             // groupAtividadeContribuinte
             // 
-            this.groupAtividadeContribuinte.Controls.Add(this.radioButton2);
-            this.groupAtividadeContribuinte.Controls.Add(this.radioButton1);
+            this.groupAtividadeContribuinte.Controls.Add(this.radioButtonAtividadeIndustria);
+            this.groupAtividadeContribuinte.Controls.Add(this.radioButtonAtividadeOutros);
             this.groupAtividadeContribuinte.Location = new System.Drawing.Point(16, 96);
             this.groupAtividadeContribuinte.Name = "groupAtividadeContribuinte";
             this.groupAtividadeContribuinte.Size = new System.Drawing.Size(277, 67);
@@ -419,27 +419,27 @@
             this.groupAtividadeContribuinte.TabStop = false;
             this.groupAtividadeContribuinte.Text = "Atividade do contribuinte";
             // 
-            // radioButton2
+            // radioButtonAtividadeIndustria
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 44);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(187, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Indústria ou equiparado a indústria";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButtonAtividadeIndustria.AutoSize = true;
+            this.radioButtonAtividadeIndustria.Location = new System.Drawing.Point(6, 44);
+            this.radioButtonAtividadeIndustria.Name = "radioButtonAtividadeIndustria";
+            this.radioButtonAtividadeIndustria.Size = new System.Drawing.Size(187, 17);
+            this.radioButtonAtividadeIndustria.TabIndex = 1;
+            this.radioButtonAtividadeIndustria.Text = "Indústria ou equiparado a indústria";
+            this.radioButtonAtividadeIndustria.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // radioButtonAtividadeOutros
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 21);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(241, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Outros (Comércio, prestador de serviço, etc...)";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButtonAtividadeOutros.AutoSize = true;
+            this.radioButtonAtividadeOutros.Checked = true;
+            this.radioButtonAtividadeOutros.Location = new System.Drawing.Point(6, 21);
+            this.radioButtonAtividadeOutros.Name = "radioButtonAtividadeOutros";
+            this.radioButtonAtividadeOutros.Size = new System.Drawing.Size(241, 17);
+            this.radioButtonAtividadeOutros.TabIndex = 0;
+            this.radioButtonAtividadeOutros.TabStop = true;
+            this.radioButtonAtividadeOutros.Text = "Outros (Comércio, prestador de serviço, etc...)";
+            this.radioButtonAtividadeOutros.UseVisualStyleBackColor = true;
             // 
             // groupBoxPerfil
             // 
@@ -628,12 +628,7 @@
         private System.Windows.Forms.Label lclDe;
         private System.Windows.Forms.GroupBox groupBoxPerfil;
         private System.Windows.Forms.GroupBox groupBoxFinalidade;
-        private System.Windows.Forms.RadioButton radioPerfilC;
-        private System.Windows.Forms.RadioButton radioPerfilB;
-        private System.Windows.Forms.RadioButton radioPerfilA;
         private System.Windows.Forms.GroupBox groupAtividadeContribuinte;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.GroupBox groupBoxLeiaute;
         private System.Windows.Forms.GroupBox groupBoxRegistros;
         private System.Windows.Forms.CheckBox checkBoxRegistroC300;
@@ -665,5 +660,10 @@
         public System.Windows.Forms.RadioButton radioFinalidadeOrig;
         public System.Windows.Forms.DateTimePicker dateTimePickerDataFinal;
         public System.Windows.Forms.DateTimePicker dateTimePickerDataInicio;
+        public System.Windows.Forms.RadioButton radioPerfilC;
+        public System.Windows.Forms.RadioButton radioPerfilB;
+        public System.Windows.Forms.RadioButton radioPerfilA;
+        public System.Windows.Forms.RadioButton radioButtonAtividadeIndustria;
+        public System.Windows.Forms.RadioButton radioButtonAtividadeOutros;
     }
 }

@@ -169,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlocosSped.cs" />
+    <Compile Include="Classes\Functions.cs" />
     <Compile Include="Emitente.cs" />
     <Compile Include="Forms\Contabilista.cs">
       <SubType>Form</SubType>

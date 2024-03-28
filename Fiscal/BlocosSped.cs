@@ -1,4 +1,5 @@
-﻿using Fiscal.Forms;
+﻿using Fiscal.Classes;
+using Fiscal.Forms;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -14,19 +15,6 @@ namespace Fiscal
     {
         public Sped sped;
 
-        //Sped sped = new Sped();
-
-
-
-        private string SoNumeros(string texto)
-        {
-            if(string.IsNullOrEmpty(texto))
-                return texto;
-
-            texto = Regex.Replace(texto, @"[^0-9]", "");
-
-            return texto;
-        }
         public string registro0000()
         {
             var registro = "";
@@ -34,10 +22,13 @@ namespace Fiscal
             using (var dc = new DataContext())
             {
                 IQueryable<Emitente> emitente = dc.Emitente.AsQueryable().Where(d => d.Controle == 1);
+                IQueryable<DadoContabilista> dadoContabilista = dc.DadoContabilista.AsQueryable().Where(d => d.Controle == 1);
                 var dadosEmitente = emitente.ToList();
+                var dadosContabilista = dadoContabilista.ToList();
 
                 foreach (var e in emitente)
                 {
+                    // Registro 0000
                     registro += "|" + "0000" + "|";
                     registro += sped.txtLeiaute.Text + "|";
                     if (sped.radioFinalidadeOrig.Checked)
@@ -48,16 +39,72 @@ namespace Fiscal
                     {
                         registro += "1" + "|";
                     }
-                    else
-                    {
-                        // Se nenhum RadioButton estiver marcado, faça algo ou emita um aviso
-                        MessageBox.Show("Por favor, selecione uma finalidade.");
-                    }
+
                     registro += sped.dateTimePickerDataInicio.Value.Date.ToShortDateString().Replace("/", "") + "|";
                     registro += sped.dateTimePickerDataFinal.Value.Date.ToShortDateString().Replace("/", "") + "|";
                     registro += e.RazaoSocial + "|";
-                    registro += SoNumeros(e.CNPJ) + "|";
-                    registro += e.CPF + "|";
+                    registro += Functions.RemoveCaracteres(e.CNPJ) + "|";
+                    registro += Functions.RemoveCaracteres(e.CPF) + "|";
+                    registro += e.UF + "|";
+                    registro += e.IE + "|";
+                    registro += e.CodCidadeIBGE + "|";
+                    registro += e.IM + "|";
+                    registro += e.SUFRAMA + "|";
+                    if (sped.radioPerfilA.Checked == true)
+                    {
+                        registro += "A" + "|";
+
+                    } else if(sped.radioPerfilB.Checked == true)
+                    {
+                        registro += "B" + "|";
+
+                    } else if (sped.radioPerfilC.Checked == true)
+                    {
+                        registro += "C" + "|";
+                    }
+                    if (sped.radioButtonAtividadeOutros.Checked == true)
+                    {
+                        registro += "1" + "|\n";
+                    } else if (sped.radioButtonAtividadeIndustria.Checked == true)
+                    {
+                        registro += "0" + "|\n";
+                    }
+
+                    // Registro 0001
+                    registro += "|" + "0001" + "|";
+                    registro += "0" + "|\n";
+
+                    // Registro 0005
+                    registro += "|" + "0005" + "|";
+                    registro += e.NomeFantasia + "|";
+                    registro += Functions.RemoveCaracteres(e.CEP) + "|";
+                    registro += e.Endereco + "|";
+                    registro += e.Numero + "|";
+                    registro += e.Complemento + "|";
+                    registro += e.Bairro + "|";
+                    registro += Functions.RemoveCaracteres(e.Telefone) + "|";
+                    registro += Functions.RemoveCaracteres(e.Fax) + "|";
+                    registro += e.Email + "|\n";
+
+                    // Registro 0100
+
+                    foreach (var c in dadosContabilista)
+                    {
+                        registro += "|" + "0100" + "|";
+                        registro += c.Nome + "|";
+                        registro += Functions.RemoveCaracteres(c.CPF) + "|";
+                        registro += c.CRC + "|";
+                        registro += Functions.RemoveCaracteres(c.CNPJ) + "|";
+                        registro += Functions.RemoveCaracteres(c.CEP) + "|";
+                        registro += c.Endereco + "|";
+                        registro += c.Numero + "|";
+                        registro += c.Complemento + "|";
+                        registro += c.Bairro + "|";
+                        registro += Functions.RemoveCaracteres(c.Telefone) + "|";
+                        registro += c.FAX + "|";
+                        registro += c.Email + "|";
+                        registro += c.Codmunicipio + "|";
+                    }
                 }
                 
             return registro;
