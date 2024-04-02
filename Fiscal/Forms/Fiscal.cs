@@ -35,7 +35,6 @@ namespace Fiscal
         private void Form1_Load(object sender, EventArgs e)
         {
             btnSair.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnSair.Width, btnSair.Height, 4, 4));
-            btnConfiguracoes.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnConfiguracoes.Width, btnSair.Height, 4, 4));
             btnContabilista.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnContabilista.Width, btnSair.Height, 4, 4));
         }
 

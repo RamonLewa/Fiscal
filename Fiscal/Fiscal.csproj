@@ -168,17 +168,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlocosSped.cs" />
-    <Compile Include="Classes\Functions.cs" />
-    <Compile Include="Emitente.cs" />
+    <Compile Include="Classes\BlocosSped.cs" />
+    <Compile Include="Tables\Cliente.cs" />
+    <Compile Include="Tables\Fornecedor.cs" />
+    <Compile Include="Functions.cs" />
+    <Compile Include="Tables\Emitente.cs" />
     <Compile Include="Forms\Contabilista.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Contabilista.Designer.cs">
       <DependentUpon>Contabilista.cs</DependentUpon>
     </Compile>
-    <Compile Include="DadoContabilista.cs" />
-    <Compile Include="DataContext.cs" />
+    <Compile Include="Tables\DadoContabilista.cs" />
+    <Compile Include="Classes\DataContext.cs" />
     <Compile Include="Forms\Fiscal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +195,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tables\VendaNFCe.cs" />
+    <Compile Include="Tables\VendaNFe.cs" />
     <EmbeddedResource Include="Forms\Contabilista.resx">
       <DependentUpon>Contabilista.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,5 +257,6 @@
     <None Include="Resources\cancelar.png" />
     <None Include="Resources\logo-master-280x62px.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

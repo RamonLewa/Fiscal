@@ -42,7 +42,6 @@
             this.btnSintegra = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnContabilista = new System.Windows.Forms.Button();
-            this.btnConfiguracoes = new System.Windows.Forms.Button();
             this.groupBoxSelecaoArquivo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.groupBoxStatus.SuspendLayout();
@@ -192,8 +191,7 @@
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(92, 30);
             this.btnSair.TabIndex = 1;
-            this.btnSair.Text = "Sair - F10";
-            this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
@@ -209,26 +207,9 @@
             this.btnContabilista.Name = "btnContabilista";
             this.btnContabilista.Size = new System.Drawing.Size(135, 30);
             this.btnContabilista.TabIndex = 0;
-            this.btnContabilista.Text = "Contabilista - F12";
-            this.btnContabilista.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnContabilista.Text = "Contabilista";
             this.btnContabilista.UseVisualStyleBackColor = false;
             this.btnContabilista.Click += new System.EventHandler(this.btnContabilista_Click);
-            // 
-            // btnConfiguracoes
-            // 
-            this.btnConfiguracoes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(51)))), ((int)(((byte)(255)))));
-            this.btnConfiguracoes.FlatAppearance.BorderSize = 0;
-            this.btnConfiguracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfiguracoes.ForeColor = System.Drawing.Color.White;
-            this.btnConfiguracoes.Image = global::Fiscal.Properties.Resources.engrenagem;
-            this.btnConfiguracoes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfiguracoes.Location = new System.Drawing.Point(153, 308);
-            this.btnConfiguracoes.Name = "btnConfiguracoes";
-            this.btnConfiguracoes.Size = new System.Drawing.Size(135, 30);
-            this.btnConfiguracoes.TabIndex = 2;
-            this.btnConfiguracoes.Text = "Configurações - F11";
-            this.btnConfiguracoes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnConfiguracoes.UseVisualStyleBackColor = false;
             // 
             // Fiscal
             // 
@@ -237,7 +218,6 @@
             this.BackgroundImage = global::Fiscal.Properties.Resources.background2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(651, 356);
-            this.Controls.Add(this.btnConfiguracoes);
             this.Controls.Add(this.btnContabilista);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.groupBoxSelecaoArquivo);
@@ -265,7 +245,6 @@
         private System.Windows.Forms.Button btnSpedContribuicoes;
         private System.Windows.Forms.Button btnSpedFiscal;
         private System.Windows.Forms.Button btnSintegra;
-        private System.Windows.Forms.Button btnConfiguracoes;
         private System.Windows.Forms.GroupBox groupBoxStatus;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Panel panel2;

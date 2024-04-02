@@ -20,8 +20,10 @@ namespace Fiscal
     public class DataContext : DbContext
     {
         public DbSet<DadoContabilista> DadoContabilista {  get; set; }
-
         public DbSet<Emitente> Emitente { get; set; }
+        public DbSet<Fornecedor> Fornecedor { get; set; }
+        public DbSet<VendaNFCe> VendaNFCe{ get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -29,6 +31,9 @@ namespace Fiscal
 
             new DadoContabilistaEntityTypeConfiguration().Configure(modelBuilder.Entity<DadoContabilista>());
             new EmitenteEntityTypeConfiguration().Configure(modelBuilder.Entity<Emitente>());
+            new FornecedorTypeConfiguration().Configure(modelBuilder.Entity<Fornecedor>());
+            new VendaNFCeTypeConfiguration().Configure(modelBuilder.Entity<VendaNFCe>());
+            new ClienteTypeConfiguration().Configure(modelBuilder.Entity<Cliente>());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

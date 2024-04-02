@@ -1,5 +1,6 @@
 ﻿using Fiscal.Classes;
 using Fiscal.Forms;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -23,8 +24,62 @@ namespace Fiscal
             {
                 IQueryable<Emitente> emitente = dc.Emitente.AsQueryable().Where(d => d.Controle == 1);
                 IQueryable<DadoContabilista> dadoContabilista = dc.DadoContabilista.AsQueryable().Where(d => d.Controle == 1);
+                IQueryable<Fornecedor> fornecedor = dc.Fornecedor.AsQueryable();
+                IQueryable<Cliente> cliente = dc.Cliente.AsQueryable();
+                IQueryable<VendaNFCe> vendaNFCe = dc.VendaNFCe.AsQueryable();
                 var dadosEmitente = emitente.ToList();
                 var dadosContabilista = dadoContabilista.ToList();
+                var dadosFornecedor = fornecedor.ToList();
+                var dadosClientes = cliente.ToList();
+                var notasNFCe = vendaNFCe.ToList();
+
+                DateTime dataInicial = sped.dateTimePickerDataInicio.Value;
+                DateTime dataFinal = sped.dateTimePickerDataFinal.Value;
+
+                var select0150 = notasNFCe.Join(dadosClientes, nfc => nfc.CodCliente, cli => cli.Controle, (nfc, cli) => new
+                {
+                    nfc.DataEmissao,
+                    cli.Controle,
+                    cli.NomeCliente,
+                    cli.CodigoPais,
+                    cli.CNPJ,
+                    cli.CPF,
+                    cli.IE,
+                    cli.CodigoCidadeIGBE,
+                    cli.SUFRAMA,
+                    cli.Endereco,
+                    cli.Numero,
+                    cli.Complemento,
+                    cli.Bairro,
+                    nfc.StatusEnvio,
+                    nfc.Inutilizada,
+                    nfc.ProtocoloCancelamento,
+                    nfc.SAT
+                }).Where(nfc =>(nfc.StatusEnvio == "Autorizado o uso da NF-e" || nfc.StatusEnvio == "Emitida em contingência")
+                && nfc.Inutilizada == null
+                && nfc.ProtocoloCancelamento == null
+                && nfc.SAT == "NÃO"
+                && (nfc.DataEmissao >= dataInicial && nfc.DataEmissao <= dataFinal)
+                );
+
+                var distinctSelect0150 = select0150.GroupBy(item => new {
+                    item.Controle,
+                    item.NomeCliente,
+                    item.CodigoPais,
+                    item.CNPJ,
+                    item.CPF,
+                    item.IE,
+                    item.CodigoCidadeIGBE,
+                    item.SUFRAMA,
+                    item.Endereco,
+                    item.Numero,
+                    item.Complemento,
+                    item.Bairro,
+                    item.StatusEnvio,
+                    item.Inutilizada,
+                    item.ProtocoloCancelamento,
+                    item.SAT
+                }).Select(group => group.First());
 
                 foreach (var e in emitente)
                 {
@@ -103,7 +158,27 @@ namespace Fiscal
                         registro += Functions.RemoveCaracteres(c.Telefone) + "|";
                         registro += c.FAX + "|";
                         registro += c.Email + "|";
-                        registro += c.Codmunicipio + "|";
+                        registro += c.Codmunicipio + "|\n";
+
+                    }
+
+                    // Registro 0150
+
+                    foreach (var c in distinctSelect0150)
+                    {
+                        registro += "|" + "150" + "|";
+                        registro += c.Controle + "|";
+                        registro += c.NomeCliente + "|";
+                        registro += c.CodigoPais + "|";
+                        registro += Functions.RemoveCaracteres(c.CNPJ) + "|";
+                        registro += Functions.RemoveCaracteres(c.CPF) + "|";
+                        registro += c.IE + "|";
+                        registro += c.CodigoCidadeIGBE + "|";
+                        registro += c.SUFRAMA + "|";
+                        registro += c.Endereco + "|";
+                        registro += c.Numero + "|";
+                        registro += c.Complemento + "|";
+                        registro += c.Bairro + "|\n";
                     }
                 }
                 
