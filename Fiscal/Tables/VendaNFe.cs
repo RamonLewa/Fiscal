@@ -120,7 +120,7 @@ namespace Fiscal.Tables
         public string CidadeDestinatario { get; set; }
 
         [DisplayName("Código do Município")]
-        public int? CodigoMunicipio { get; set; }
+        public string CodMunicipio { get; set; }
 
         [DisplayName("UF do Destinatário")]
         public string UFDestinatario { get; set; }
@@ -228,7 +228,7 @@ namespace Fiscal.Tables
         public decimal? ValorTotalPIS { get; set; }
 
         [DisplayName("Valor Retido do PIS")]
-        public decimal? ValorRetidoPIS { get; set; }
+        public decimal? ValorTotalPisRet { get; set; }
 
         [DisplayName("Valor Total da COFINS")]
         public decimal? ValorTotalCOFINS { get; set; }
@@ -309,16 +309,16 @@ namespace Fiscal.Tables
         public string IndicadorPagamento { get; set; }
 
         [DisplayName("Código do OS")]
-        public int? CodigoOS { get; set; }
+        public int? CodOS { get; set; }
 
         [DisplayName("Código do Orçamento")]
-        public int? CodigoOrcamento { get; set; }
+        public int? CodOrcamento { get; set; }
 
         [DisplayName("Checado")]
         public string Checado { get; set; }
 
         [DisplayName("Código Condicional")]
-        public int? CodigoCondicional { get; set; }
+        public int? CodCondicional { get; set; }
 
         [DisplayName("UF de Embarque")]
         public string UFEmbarque { get; set; }
@@ -327,10 +327,10 @@ namespace Fiscal.Tables
         public string LocalEmbarque { get; set; }
 
         [DisplayName("Código CCF/ECF")]
-        public string CodigoCCFECF { get; set; }
+        public string CodCCFECF { get; set; }
 
         [DisplayName("Código do Pedido de Venda")]
-        public int? CodigoPedidoVenda { get; set; }
+        public int? CodPedidoVenda { get; set; }
 
         [DisplayName("Espécie de Pagamento")]
         public string EspeciePagamento { get; set; }
@@ -357,7 +357,7 @@ namespace Fiscal.Tables
         public string SequenciaCCE { get; set; }
 
         [DisplayName("Código do Status do Cancelamento")]
-        public int? CodigoStatusCancelamento { get; set; }
+        public int? CodStatusCancelamento { get; set; }
 
         [DisplayName("Data e Hora do Cancelamento")]
         public DateTime? DataEHoraCancelamento { get; set; }
@@ -378,7 +378,7 @@ namespace Fiscal.Tables
         public int? NumeroNota { get; set; }
 
         [DisplayName("Código do Produto")]
-        public int? CodigoProduto { get; set; }
+        public int? CodProduto { get; set; }
 
         [DisplayName("MD5J1")]
         public string MD5J1 { get; set; }
@@ -390,7 +390,7 @@ namespace Fiscal.Tables
         public string IndicadorConsumidorFinal { get; set; }
 
         [DisplayName("Código da Nota Manual")]
-        public int? CodigoNotaManual { get; set; }
+        public int? CodNotaManual { get; set; }
 
         [DisplayName("Verificado")]
         public string Verificado { get; set; }
@@ -417,7 +417,7 @@ namespace Fiscal.Tables
 
             builder.Property(e => e.DataCadastro).HasColumnName("DATACADASTRO").IsRequired();
 
-            builder.Property(e => e.HoraCadastro).HasColumnName("CLIENTE");
+            builder.Property(e => e.HoraCadastro).HasColumnName("HORACADASTRO");
 
             builder.Property(e => e.Nota).HasColumnName("NOTA");
 
@@ -485,7 +485,7 @@ namespace Fiscal.Tables
 
             builder.Property(e => e.CidadeDestinatario).HasColumnName("CIDADEDESTINATARIO");
 
-            builder.Property(e => e.CodigoMunicipio).HasColumnName("CODIGOMUNICIPIO");
+            builder.Property(e => e.CodMunicipio).HasColumnName("CODIGOMUNICIPIO");
 
             builder.Property(e => e.UFDestinatario).HasColumnName("UFDESTINATARIO");
 
@@ -557,7 +557,7 @@ namespace Fiscal.Tables
 
             builder.Property(e => e.ValorTotalPIS).HasColumnName("VALORTOTALPIS");
 
-            builder.Property(e => e.ValorTotalPrevRet).HasColumnName("VALORTOTALPISRET");
+            builder.Property(e => e.ValorTotalPisRet).HasColumnName("VALORTOTALPISRET");
 
             builder.Property(e => e.ValorTotalCOFINS).HasColumnName("VALORTOTALCOFINS");
 
@@ -611,21 +611,21 @@ namespace Fiscal.Tables
 
             builder.Property(e => e.IndicadorPagamento).HasColumnName("INDICADORPAGAMENTO");
 
-            builder.Property(e => e.CodigoOS).HasColumnName("CODOS");
+            builder.Property(e => e.CodOS).HasColumnName("CODOS");
 
-            builder.Property(e => e.CodigoOrcamento).HasColumnName("CODORCAMENTO");
+            builder.Property(e => e.CodOrcamento).HasColumnName("CODORCAMENTO");
 
             builder.Property(e => e.Checado).HasColumnName("CHECADO");
 
-            builder.Property(e => e.CodigoCondicional).HasColumnName("CODCONDICIONAL");
+            builder.Property(e => e.CodCondicional).HasColumnName("CODCONDICIONAL");
 
             builder.Property(e => e.UFEmbarque).HasColumnName("UFEMBARQUE");
 
             builder.Property(e => e.LocalEmbarque).HasColumnName("LOCALEMBARQUE");
 
-            builder.Property(e => e.CodigoCCFECF).HasColumnName("CODCCFECF");
+            builder.Property(e => e.CodCCFECF).HasColumnName("CODCCFECF");
 
-            builder.Property(e => e.CodigoPedidoVenda).HasColumnName("CODPEDIDOVENDA");
+            builder.Property(e => e.CodPedidoVenda).HasColumnName("CODPEDIDOVENDA");
 
             builder.Property(e => e.EspeciePagamento).HasColumnName("ESPECIEPAGAMENTO");
 
@@ -643,7 +643,7 @@ namespace Fiscal.Tables
 
             builder.Property(e => e.SequenciaCCE).HasColumnName("SEQUENCIACCE");
 
-            builder.Property(e => e.CodigoStatusCancelamento).HasColumnName("CODIGOSTATUSCANCELAMENTO");
+            builder.Property(e => e.CodStatusCancelamento).HasColumnName("CODIGOSTATUSCANCELAMENTO");
 
             builder.Property(e => e.DataEHoraCancelamento).HasColumnName("DATAEHORACANCELAMENTO");
 
@@ -657,7 +657,7 @@ namespace Fiscal.Tables
 
             builder.Property(e => e.NumeroNota).HasColumnName("NUMERONOTA");
 
-            builder.Property(e => e.CodigoProduto).HasColumnName("CODPRODUTO");
+            builder.Property(e => e.CodProduto).HasColumnName("CODPRODUTO");
 
             builder.Property(e => e.MD5J1).HasColumnName("MD5J1");
 
@@ -665,7 +665,7 @@ namespace Fiscal.Tables
 
             builder.Property(e => e.IndicadorConsumidorFinal).HasColumnName("INDCONSUMIDORFINAL");
 
-            builder.Property(e => e.CodigoNotaManual).HasColumnName("CODNOTAMANUAL");
+            builder.Property(e => e.CodNotaManual).HasColumnName("CODNOTAMANUAL");
 
             builder.Property(e => e.Verificado).HasColumnName("VERIFICADO");
 

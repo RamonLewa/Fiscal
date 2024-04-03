@@ -1,5 +1,6 @@
 ﻿using Fiscal.Classes;
 using Fiscal.Forms;
+using Fiscal.Tables;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Win32;
 using System;
@@ -27,16 +28,20 @@ namespace Fiscal
                 IQueryable<Fornecedor> fornecedor = dc.Fornecedor.AsQueryable();
                 IQueryable<Cliente> cliente = dc.Cliente.AsQueryable();
                 IQueryable<VendaNFCe> vendaNFCe = dc.VendaNFCe.AsQueryable();
+                IQueryable<VendaNFe> vendaNFe = dc.VendaNFe.AsQueryable();
+                IQueryable<Estoque> estoque = dc.Estoque.AsQueryable();
                 var dadosEmitente = emitente.ToList();
                 var dadosContabilista = dadoContabilista.ToList();
                 var dadosFornecedor = fornecedor.ToList();
                 var dadosClientes = cliente.ToList();
                 var notasNFCe = vendaNFCe.ToList();
+                var notasNFe = vendaNFe.ToList();
+                var prodEstoque = estoque.ToList();
 
                 DateTime dataInicial = sped.dateTimePickerDataInicio.Value;
                 DateTime dataFinal = sped.dateTimePickerDataFinal.Value;
 
-                var select0150 = notasNFCe.Join(dadosClientes, nfc => nfc.CodCliente, cli => cli.Controle, (nfc, cli) => new
+                var select0150nfce = notasNFCe.Join(dadosClientes, nfc => nfc.CodCliente, cli => cli.Controle, (nfc, cli) => new
                 {
                     nfc.DataEmissao,
                     cli.Controle,
@@ -55,14 +60,14 @@ namespace Fiscal
                     nfc.Inutilizada,
                     nfc.ProtocoloCancelamento,
                     nfc.SAT
-                }).Where(nfc =>(nfc.StatusEnvio == "Autorizado o uso da NF-e" || nfc.StatusEnvio == "Emitida em contingência")
+                }).Where(nfc => (nfc.StatusEnvio == "Autorizado o uso da NF-e" || nfc.StatusEnvio == "Emitida em contingência")
                 && nfc.Inutilizada == null
                 && nfc.ProtocoloCancelamento == null
                 && nfc.SAT == "NÃO"
                 && (nfc.DataEmissao >= dataInicial && nfc.DataEmissao <= dataFinal)
                 );
 
-                var distinctSelect0150 = select0150.GroupBy(item => new {
+                var distinctSelect0150 = select0150nfce.GroupBy(item => new {
                     item.Controle,
                     item.NomeCliente,
                     item.CodigoPais,
@@ -77,8 +82,7 @@ namespace Fiscal
                     item.Bairro,
                     item.StatusEnvio,
                     item.Inutilizada,
-                    item.ProtocoloCancelamento,
-                    item.SAT
+                    item.ProtocoloCancelamento
                 }).Select(group => group.First());
 
                 foreach (var e in emitente)
@@ -179,6 +183,24 @@ namespace Fiscal
                         registro += c.Numero + "|";
                         registro += c.Complemento + "|";
                         registro += c.Bairro + "|\n";
+                    }
+
+                    // Registro 0200
+                    foreach(var c in prodEstoque)
+                    {
+                        registro += "|" + "0200" + "|";
+                        registro += c.Controle + "|";
+                        registro += c.Produto + "|";
+                        registro += c.CodBarras + "|";
+                        registro += "|";
+                        registro += c.UN + "|";
+                        registro += c.CodAplicacao + "|";
+                        registro += c.NCM + "|";
+                        registro += "|";
+                        registro += "|";
+                        registro += "|";
+                        registro += c.AliquotaICMS + "|";
+                        registro += c.CEST + "|\n";
                     }
                 }
                 

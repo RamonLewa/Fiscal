@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using FirebirdSql.Data.FirebirdClient;
+using Fiscal.Tables;
 
 namespace Fiscal
 {
@@ -24,6 +25,8 @@ namespace Fiscal
         public DbSet<Fornecedor> Fornecedor { get; set; }
         public DbSet<VendaNFCe> VendaNFCe{ get; set; }
         public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<VendaNFe> VendaNFe { get; set; }
+        public DbSet<Estoque> Estoque { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -34,6 +37,8 @@ namespace Fiscal
             new FornecedorTypeConfiguration().Configure(modelBuilder.Entity<Fornecedor>());
             new VendaNFCeTypeConfiguration().Configure(modelBuilder.Entity<VendaNFCe>());
             new ClienteTypeConfiguration().Configure(modelBuilder.Entity<Cliente>());
+            new VendaNFeTypeConfiguration().Configure(modelBuilder.Entity<VendaNFe>());
+            new EstoqueTypeConfiguration().Configure(modelBuilder.Entity<Estoque>());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

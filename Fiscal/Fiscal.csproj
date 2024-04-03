@@ -170,6 +170,7 @@
   <ItemGroup>
     <Compile Include="Classes\BlocosSped.cs" />
     <Compile Include="Tables\Cliente.cs" />
+    <Compile Include="Tables\Estoque.cs" />
     <Compile Include="Tables\Fornecedor.cs" />
     <Compile Include="Functions.cs" />
     <Compile Include="Tables\Emitente.cs" />
