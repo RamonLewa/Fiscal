@@ -27,6 +27,7 @@ namespace Fiscal
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<VendaNFe> VendaNFe { get; set; }
         public DbSet<Estoque> Estoque { get; set; }
+        public DbSet<Compra> Compra { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,6 +40,7 @@ namespace Fiscal
             new ClienteTypeConfiguration().Configure(modelBuilder.Entity<Cliente>());
             new VendaNFeTypeConfiguration().Configure(modelBuilder.Entity<VendaNFe>());
             new EstoqueTypeConfiguration().Configure(modelBuilder.Entity<Estoque>());
+            new CompraTypeConfiguration().Configure(modelBuilder.Entity<Compra>());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
