@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +31,11 @@ namespace Fiscal.Forms
         public Sped()
         {
             InitializeComponent();
+
+            dateTimePickerDataInicio.ValueChanged += DateTimePickerDataInicio_ValueChanged;
+            dateTimePickerDataInicio.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            DateTime ultimoDiaMes = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month));
+            dateTimePickerDataFinal.Value = ultimoDiaMes;
         }
 
         #region PersonalizaForm
@@ -59,25 +65,33 @@ namespace Fiscal.Forms
 
         #endregion
 
+        private void DateTimePickerDataInicio_ValueChanged(object sender, EventArgs e)
+        {
+            dateTimePickerDataFinal.Value = new DateTime(dateTimePickerDataInicio.Value.Year, dateTimePickerDataInicio.Value.Month, 1);
+            DateTime primeiroDiaSelecionado = dateTimePickerDataInicio.Value;
+            DateTime ultimoDiaSelecionado = new DateTime(primeiroDiaSelecionado.Year, primeiroDiaSelecionado.Month, DateTime.DaysInMonth(primeiroDiaSelecionado.Year, primeiroDiaSelecionado.Month));
+            dateTimePickerDataFinal.Value = ultimoDiaSelecionado;
+        }
+
         private void Sped_Load(object sender, EventArgs e)
         {
             btnConfirmar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnConfirmar.Width, btnConfirmar.Height, 4, 4));
-            comboBoxPrecoCusto.SelectedItem = "Preço de custo unitário";
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             BlocosSped blocosSped = new BlocosSped();
             blocosSped.sped = this;
-            string registro = blocosSped.registro0000();
+            string registro = blocosSped.registroSped();
+            string registroSped = registro;
 
-            string registro00 = registro;
+            DateTime dataInicial = dateTimePickerDataInicio.Value;
 
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
             saveFileDialog1.Filter = "Arquivos de Texto (*.txt)|*.txt";
             saveFileDialog1.Title = "Salvar Arquivo SPED";
-            saveFileDialog1.FileName = "SPED" + DateTime.Now.ToString("yyyyMMdd");
+            saveFileDialog1.FileName = "Sped " + dataInicial.ToString("MM-yyyy");
             saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -86,7 +100,7 @@ namespace Fiscal.Forms
 
                 try
                 {
-                    File.WriteAllText(caminhoArquivo, registro00);
+                    File.WriteAllText(caminhoArquivo, registroSped);
 
                     MessageBox.Show("SPED gerado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();

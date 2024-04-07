@@ -60,15 +60,6 @@ namespace Fiscal
             Color.Black, BORDER_SIZE, ButtonBorderStyle.Solid,
             Color.Black, BORDER_SIZE, ButtonBorderStyle.Solid);
         }
-        private void btnSintegra_MouseEnter(object sender, EventArgs e)
-        {
-            btnSintegra.BackgroundImage = Resources.sintegra_select;
-        }
-
-        private void btnSintegra_MouseLeave(object sender, EventArgs e)
-        {
-            btnSintegra.BackgroundImage = Resources.sintegra;
-        }
 
         private void btnSpedFiscal_MouseEnter(object sender, EventArgs e)
         {
@@ -78,26 +69,6 @@ namespace Fiscal
         private void btnSpedFiscal_MouseLeave(object sender, EventArgs e)
         {
             btnSpedFiscal.BackgroundImage = Resources.sped;
-        }
-
-        private void btnSpedContribuicoes_MouseEnter(object sender, EventArgs e)
-        {
-            btnSpedContribuicoes.BackgroundImage = Resources.sped_contribuições_select;
-        }
-
-        private void btnSpedContribuicoes_MouseLeave(object sender, EventArgs e)
-        {
-            btnSpedContribuicoes.BackgroundImage = Resources.sped_contribuições;
-        }
-
-        private void btnLCDPR_MouseEnter(object sender, EventArgs e)
-        {
-            btnLCDPR.BackgroundImage = Resources.lcdpr_select;
-        }
-
-        private void btnLCDPR_MouseLeave(object sender, EventArgs e)
-        {
-            btnLCDPR.BackgroundImage = Resources.lcdpr;
         }
 
         #endregion
@@ -111,31 +82,6 @@ namespace Fiscal
         {
             Contabilista contabilista = new Contabilista();
             contabilista.ShowDialog();
-        }
-
-        private string registro0000()
-        {
-            var registro = "";
-
-            using(var _context = new DataContext())
-            {
-                var registros = _context.DadoContabilista.Count();
-
-                if(registros > 0) 
-                {
-                    var contabilistas = _context.DadoContabilista.ToList();
-
-                    foreach(var contabilista in contabilistas)
-                    {
-                        registro += "00" + "|";
-                        registro += contabilista.CNPJ.PadRight(12) + "|";
-                        registro += contabilista.Nome.PadRight(12);
-
-                    }
-                }
-            }
-
-            return registro;
         }
 
         private void btnSpedFiscal_Click(object sender, EventArgs e)

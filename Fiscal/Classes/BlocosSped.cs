@@ -17,7 +17,7 @@ namespace Fiscal
     {
         public Sped sped;
 
-        public string registro0000()
+        public string registroSped()
         {
             var registro = "";
 

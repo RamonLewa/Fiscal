@@ -31,30 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sped));
             this.tabDados = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBoxMotivoGeracao = new System.Windows.Forms.ComboBox();
-            this.dateTimePickerDataInventario = new System.Windows.Forms.DateTimePicker();
-            this.lblDataInventario = new System.Windows.Forms.Label();
-            this.comboBoxPrecoCusto = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblPrecoCusto = new System.Windows.Forms.Label();
             this.groupBoxRegistros = new System.Windows.Forms.GroupBox();
-            this.checkBoxDRCST = new System.Windows.Forms.CheckBox();
-            this.checkBoxBlocoH = new System.Windows.Forms.CheckBox();
-            this.checkBoxRegistro1601 = new System.Windows.Forms.CheckBox();
-            this.checkBoxBloco1 = new System.Windows.Forms.CheckBox();
-            this.checkBoxBlocoK = new System.Windows.Forms.CheckBox();
-            this.checkBoxBlocoG = new System.Windows.Forms.CheckBox();
-            this.checkBoxBlocoE = new System.Windows.Forms.CheckBox();
-            this.checkBoxBlocoD = new System.Windows.Forms.CheckBox();
-            this.checkBoxRegistroC300 = new System.Windows.Forms.CheckBox();
-            this.checkBoxRegistroC870 = new System.Windows.Forms.CheckBox();
-            this.checkBoxRegistroC176 = new System.Windows.Forms.CheckBox();
-            this.checkBoxRegistroC170 = new System.Windows.Forms.CheckBox();
-            this.checkBoxRegistrpC140 = new System.Windows.Forms.CheckBox();
-            this.checkBoxBlocoC = new System.Windows.Forms.CheckBox();
-            this.checkBoxBlocoB = new System.Windows.Forms.CheckBox();
-            this.checkBoxBloco9 = new System.Windows.Forms.CheckBox();
             this.checkBox1Bloco0 = new System.Windows.Forms.CheckBox();
             this.groupBoxLeiaute = new System.Windows.Forms.GroupBox();
             this.txtLeiaute = new System.Windows.Forms.TextBox();
@@ -76,7 +53,6 @@
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.tabDados.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBoxRegistros.SuspendLayout();
             this.groupBoxLeiaute.SuspendLayout();
             this.groupAtividadeContribuinte.SuspendLayout();
@@ -91,13 +67,12 @@
             this.tabDados.Location = new System.Drawing.Point(12, 12);
             this.tabDados.Name = "tabDados";
             this.tabDados.SelectedIndex = 0;
-            this.tabDados.Size = new System.Drawing.Size(607, 536);
+            this.tabDados.Size = new System.Drawing.Size(607, 294);
             this.tabDados.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.groupBoxRegistros);
             this.tabPage1.Controls.Add(this.groupBoxLeiaute);
             this.tabPage1.Controls.Add(this.groupAtividadeContribuinte);
@@ -107,273 +82,19 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(599, 510);
+            this.tabPage1.Size = new System.Drawing.Size(599, 268);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dados";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.comboBoxMotivoGeracao);
-            this.groupBox1.Controls.Add(this.dateTimePickerDataInventario);
-            this.groupBox1.Controls.Add(this.lblDataInventario);
-            this.groupBox1.Controls.Add(this.comboBoxPrecoCusto);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.lblPrecoCusto);
-            this.groupBox1.Location = new System.Drawing.Point(16, 398);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(570, 106);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Inventário";
-            // 
-            // comboBoxMotivoGeracao
-            // 
-            this.comboBoxMotivoGeracao.FormattingEnabled = true;
-            this.comboBoxMotivoGeracao.Location = new System.Drawing.Point(269, 32);
-            this.comboBoxMotivoGeracao.Name = "comboBoxMotivoGeracao";
-            this.comboBoxMotivoGeracao.Size = new System.Drawing.Size(189, 21);
-            this.comboBoxMotivoGeracao.TabIndex = 6;
-            // 
-            // dateTimePickerDataInventario
-            // 
-            this.dateTimePickerDataInventario.Location = new System.Drawing.Point(9, 80);
-            this.dateTimePickerDataInventario.Name = "dateTimePickerDataInventario";
-            this.dateTimePickerDataInventario.Size = new System.Drawing.Size(213, 20);
-            this.dateTimePickerDataInventario.TabIndex = 5;
-            this.dateTimePickerDataInventario.Value = new System.DateTime(2022, 12, 31, 20, 35, 0, 0);
-            // 
-            // lblDataInventario
-            // 
-            this.lblDataInventario.AutoSize = true;
-            this.lblDataInventario.Location = new System.Drawing.Point(6, 56);
-            this.lblDataInventario.Name = "lblDataInventario";
-            this.lblDataInventario.Size = new System.Drawing.Size(185, 13);
-            this.lblDataInventario.TabIndex = 4;
-            this.lblDataInventario.Text = "Data final para geração do inventário:";
-            // 
-            // comboBoxPrecoCusto
-            // 
-            this.comboBoxPrecoCusto.FormattingEnabled = true;
-            this.comboBoxPrecoCusto.Items.AddRange(new object[] {
-            "Preço de custo unitário",
-            "Preço de custo médio unitário"});
-            this.comboBoxPrecoCusto.Location = new System.Drawing.Point(9, 32);
-            this.comboBoxPrecoCusto.Name = "comboBoxPrecoCusto";
-            this.comboBoxPrecoCusto.Size = new System.Drawing.Size(179, 21);
-            this.comboBoxPrecoCusto.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(266, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(163, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Motivo da geração do inventário:";
-            // 
-            // lblPrecoCusto
-            // 
-            this.lblPrecoCusto.AutoSize = true;
-            this.lblPrecoCusto.Location = new System.Drawing.Point(6, 16);
-            this.lblPrecoCusto.Name = "lblPrecoCusto";
-            this.lblPrecoCusto.Size = new System.Drawing.Size(128, 13);
-            this.lblPrecoCusto.TabIndex = 0;
-            this.lblPrecoCusto.Text = "Obter preço de custo por:";
-            // 
             // groupBoxRegistros
             // 
-            this.groupBoxRegistros.Controls.Add(this.checkBoxDRCST);
-            this.groupBoxRegistros.Controls.Add(this.checkBoxBlocoH);
-            this.groupBoxRegistros.Controls.Add(this.checkBoxRegistro1601);
-            this.groupBoxRegistros.Controls.Add(this.checkBoxBloco1);
-            this.groupBoxRegistros.Controls.Add(this.checkBoxBlocoK);
-            this.groupBoxRegistros.Controls.Add(this.checkBoxBlocoG);
-            this.groupBoxRegistros.Controls.Add(this.checkBoxBlocoE);
-            this.groupBoxRegistros.Controls.Add(this.checkBoxBlocoD);
-            this.groupBoxRegistros.Controls.Add(this.checkBoxRegistroC300);
-            this.groupBoxRegistros.Controls.Add(this.checkBoxRegistroC870);
-            this.groupBoxRegistros.Controls.Add(this.checkBoxRegistroC176);
-            this.groupBoxRegistros.Controls.Add(this.checkBoxRegistroC170);
-            this.groupBoxRegistros.Controls.Add(this.checkBoxRegistrpC140);
-            this.groupBoxRegistros.Controls.Add(this.checkBoxBlocoC);
-            this.groupBoxRegistros.Controls.Add(this.checkBoxBlocoB);
-            this.groupBoxRegistros.Controls.Add(this.checkBoxBloco9);
             this.groupBoxRegistros.Controls.Add(this.checkBox1Bloco0);
             this.groupBoxRegistros.Location = new System.Drawing.Point(16, 169);
             this.groupBoxRegistros.Name = "groupBoxRegistros";
-            this.groupBoxRegistros.Size = new System.Drawing.Size(570, 223);
+            this.groupBoxRegistros.Size = new System.Drawing.Size(570, 74);
             this.groupBoxRegistros.TabIndex = 5;
             this.groupBoxRegistros.TabStop = false;
             this.groupBoxRegistros.Text = "Registros a serem gerados";
-            // 
-            // checkBoxDRCST
-            // 
-            this.checkBoxDRCST.AutoSize = true;
-            this.checkBoxDRCST.Location = new System.Drawing.Point(269, 178);
-            this.checkBoxDRCST.Name = "checkBoxDRCST";
-            this.checkBoxDRCST.Size = new System.Drawing.Size(92, 17);
-            this.checkBoxDRCST.TabIndex = 16;
-            this.checkBoxDRCST.Text = "Gerar DRCST";
-            this.checkBoxDRCST.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxBlocoH
-            // 
-            this.checkBoxBlocoH.AutoSize = true;
-            this.checkBoxBlocoH.Location = new System.Drawing.Point(269, 155);
-            this.checkBoxBlocoH.Name = "checkBoxBlocoH";
-            this.checkBoxBlocoH.Size = new System.Drawing.Size(205, 17);
-            this.checkBoxBlocoH.TabIndex = 15;
-            this.checkBoxBlocoH.Text = "Bloco H - Registro do inventário físico";
-            this.checkBoxBlocoH.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxRegistro1601
-            // 
-            this.checkBoxRegistro1601.AutoSize = true;
-            this.checkBoxRegistro1601.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxRegistro1601.Location = new System.Drawing.Point(282, 134);
-            this.checkBoxRegistro1601.Name = "checkBoxRegistro1601";
-            this.checkBoxRegistro1601.Size = new System.Drawing.Size(187, 16);
-            this.checkBoxRegistro1601.TabIndex = 14;
-            this.checkBoxRegistro1601.Text = "Registro 1601 - Pagamentos eletrônicos";
-            this.checkBoxRegistro1601.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxBloco1
-            // 
-            this.checkBoxBloco1.AutoSize = true;
-            this.checkBoxBloco1.Location = new System.Drawing.Point(269, 111);
-            this.checkBoxBloco1.Name = "checkBoxBloco1";
-            this.checkBoxBloco1.Size = new System.Drawing.Size(153, 17);
-            this.checkBoxBloco1.TabIndex = 13;
-            this.checkBoxBloco1.Text = "Bloco 1 - Créditos de ICMS";
-            this.checkBoxBloco1.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxBlocoK
-            // 
-            this.checkBoxBlocoK.AutoSize = true;
-            this.checkBoxBlocoK.Location = new System.Drawing.Point(269, 88);
-            this.checkBoxBlocoK.Name = "checkBoxBlocoK";
-            this.checkBoxBlocoK.Size = new System.Drawing.Size(174, 17);
-            this.checkBoxBlocoK.TabIndex = 12;
-            this.checkBoxBlocoK.Text = "Bloco K - Controle da produção";
-            this.checkBoxBlocoK.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxBlocoG
-            // 
-            this.checkBoxBlocoG.AutoSize = true;
-            this.checkBoxBlocoG.Location = new System.Drawing.Point(269, 65);
-            this.checkBoxBlocoG.Name = "checkBoxBlocoG";
-            this.checkBoxBlocoG.Size = new System.Drawing.Size(151, 17);
-            this.checkBoxBlocoG.TabIndex = 11;
-            this.checkBoxBlocoG.Text = "Bloco G - Ativo imobilizado";
-            this.checkBoxBlocoG.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxBlocoE
-            // 
-            this.checkBoxBlocoE.AutoSize = true;
-            this.checkBoxBlocoE.Location = new System.Drawing.Point(269, 42);
-            this.checkBoxBlocoE.Name = "checkBoxBlocoE";
-            this.checkBoxBlocoE.Size = new System.Drawing.Size(162, 17);
-            this.checkBoxBlocoE.TabIndex = 10;
-            this.checkBoxBlocoE.Text = "Bloco E - Apuração do ICMS";
-            this.checkBoxBlocoE.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxBlocoD
-            // 
-            this.checkBoxBlocoD.AutoSize = true;
-            this.checkBoxBlocoD.Location = new System.Drawing.Point(269, 19);
-            this.checkBoxBlocoD.Name = "checkBoxBlocoD";
-            this.checkBoxBlocoD.Size = new System.Drawing.Size(239, 17);
-            this.checkBoxBlocoD.TabIndex = 9;
-            this.checkBoxBlocoD.Text = "Bloco D - Aquisições/Prestações de serviços";
-            this.checkBoxBlocoD.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxRegistroC300
-            // 
-            this.checkBoxRegistroC300.AutoSize = true;
-            this.checkBoxRegistroC300.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxRegistroC300.Location = new System.Drawing.Point(19, 201);
-            this.checkBoxRegistroC300.Name = "checkBoxRegistroC300";
-            this.checkBoxRegistroC300.Size = new System.Drawing.Size(148, 16);
-            this.checkBoxRegistroC300.TabIndex = 8;
-            this.checkBoxRegistroC300.Text = "Registro C300 - (Nota manual)";
-            this.checkBoxRegistroC300.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxRegistroC870
-            // 
-            this.checkBoxRegistroC870.AutoSize = true;
-            this.checkBoxRegistroC870.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxRegistroC870.Location = new System.Drawing.Point(19, 178);
-            this.checkBoxRegistroC870.Name = "checkBoxRegistroC870";
-            this.checkBoxRegistroC870.Size = new System.Drawing.Size(180, 16);
-            this.checkBoxRegistroC870.TabIndex = 7;
-            this.checkBoxRegistroC870.Text = "Registro C870 - Itens comercializados";
-            this.checkBoxRegistroC870.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxRegistroC176
-            // 
-            this.checkBoxRegistroC176.AutoSize = true;
-            this.checkBoxRegistroC176.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxRegistroC176.Location = new System.Drawing.Point(19, 155);
-            this.checkBoxRegistroC176.Name = "checkBoxRegistroC176";
-            this.checkBoxRegistroC176.Size = new System.Drawing.Size(178, 16);
-            this.checkBoxRegistroC176.TabIndex = 6;
-            this.checkBoxRegistroC176.Text = "Registro C176 - Ressarcimento de ST";
-            this.checkBoxRegistroC176.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxRegistroC170
-            // 
-            this.checkBoxRegistroC170.AutoSize = true;
-            this.checkBoxRegistroC170.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxRegistroC170.Location = new System.Drawing.Point(19, 133);
-            this.checkBoxRegistroC170.Name = "checkBoxRegistroC170";
-            this.checkBoxRegistroC170.Size = new System.Drawing.Size(182, 16);
-            this.checkBoxRegistroC170.TabIndex = 5;
-            this.checkBoxRegistroC170.Text = "Registro C 170 - Itens comercializados";
-            this.checkBoxRegistroC170.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxRegistrpC140
-            // 
-            this.checkBoxRegistrpC140.AutoSize = true;
-            this.checkBoxRegistrpC140.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxRegistrpC140.Location = new System.Drawing.Point(19, 111);
-            this.checkBoxRegistrpC140.Name = "checkBoxRegistrpC140";
-            this.checkBoxRegistrpC140.Size = new System.Drawing.Size(198, 16);
-            this.checkBoxRegistrpC140.TabIndex = 4;
-            this.checkBoxRegistrpC140.Text = "Registros C140/C141 - Entradas NF-e (55)";
-            this.checkBoxRegistrpC140.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxBlocoC
-            // 
-            this.checkBoxBlocoC.AutoSize = true;
-            this.checkBoxBlocoC.Location = new System.Drawing.Point(6, 88);
-            this.checkBoxBlocoC.Name = "checkBoxBlocoC";
-            this.checkBoxBlocoC.Size = new System.Drawing.Size(153, 17);
-            this.checkBoxBlocoC.TabIndex = 3;
-            this.checkBoxBlocoC.Text = "Bloco C - Entradas/Saídas";
-            this.checkBoxBlocoC.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxBlocoB
-            // 
-            this.checkBoxBlocoB.AutoSize = true;
-            this.checkBoxBlocoB.Location = new System.Drawing.Point(6, 65);
-            this.checkBoxBlocoB.Name = "checkBoxBlocoB";
-            this.checkBoxBlocoB.Size = new System.Drawing.Size(153, 17);
-            this.checkBoxBlocoB.TabIndex = 2;
-            this.checkBoxBlocoB.Text = "Bloco B - Apuração do ISS";
-            this.checkBoxBlocoB.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxBloco9
-            // 
-            this.checkBoxBloco9.AutoSize = true;
-            this.checkBoxBloco9.Checked = true;
-            this.checkBoxBloco9.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxBloco9.Enabled = false;
-            this.checkBoxBloco9.Location = new System.Drawing.Point(6, 42);
-            this.checkBoxBloco9.Name = "checkBoxBloco9";
-            this.checkBoxBloco9.Size = new System.Drawing.Size(134, 17);
-            this.checkBoxBloco9.TabIndex = 1;
-            this.checkBoxBloco9.Text = "Bloco 9 - Totalizadores";
-            this.checkBoxBloco9.UseVisualStyleBackColor = true;
             // 
             // checkBox1Bloco0
             // 
@@ -565,6 +286,7 @@
             this.dateTimePickerDataInicio.Name = "dateTimePickerDataInicio";
             this.dateTimePickerDataInicio.Size = new System.Drawing.Size(217, 20);
             this.dateTimePickerDataInicio.TabIndex = 0;
+            this.dateTimePickerDataInicio.ValueChanged += new System.EventHandler(this.DateTimePickerDataInicio_ValueChanged);
             // 
             // btnConfirmar
             // 
@@ -575,7 +297,7 @@
             this.btnConfirmar.ForeColor = System.Drawing.Color.White;
             this.btnConfirmar.Image = global::Fiscal.Properties.Resources.confirmar;
             this.btnConfirmar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfirmar.Location = new System.Drawing.Point(514, 554);
+            this.btnConfirmar.Location = new System.Drawing.Point(514, 319);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(105, 30);
             this.btnConfirmar.TabIndex = 3;
@@ -588,9 +310,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Fiscal.Properties.Resources.background2;
-            this.ClientSize = new System.Drawing.Size(624, 596);
+            this.ClientSize = new System.Drawing.Size(624, 361);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.tabDados);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Sped";
@@ -599,8 +322,6 @@
             this.Load += new System.EventHandler(this.Sped_Load);
             this.tabDados.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBoxRegistros.ResumeLayout(false);
             this.groupBoxRegistros.PerformLayout();
             this.groupBoxLeiaute.ResumeLayout(false);
@@ -630,30 +351,7 @@
         private System.Windows.Forms.GroupBox groupAtividadeContribuinte;
         private System.Windows.Forms.GroupBox groupBoxLeiaute;
         private System.Windows.Forms.GroupBox groupBoxRegistros;
-        private System.Windows.Forms.CheckBox checkBoxRegistroC300;
-        private System.Windows.Forms.CheckBox checkBoxRegistroC870;
-        private System.Windows.Forms.CheckBox checkBoxRegistroC176;
-        private System.Windows.Forms.CheckBox checkBoxRegistroC170;
-        private System.Windows.Forms.CheckBox checkBoxRegistrpC140;
-        private System.Windows.Forms.CheckBox checkBoxBlocoC;
-        private System.Windows.Forms.CheckBox checkBoxBlocoB;
-        private System.Windows.Forms.CheckBox checkBoxBloco9;
         private System.Windows.Forms.CheckBox checkBox1Bloco0;
-        private System.Windows.Forms.CheckBox checkBoxRegistro1601;
-        private System.Windows.Forms.CheckBox checkBoxBloco1;
-        private System.Windows.Forms.CheckBox checkBoxBlocoK;
-        private System.Windows.Forms.CheckBox checkBoxBlocoG;
-        private System.Windows.Forms.CheckBox checkBoxBlocoE;
-        private System.Windows.Forms.CheckBox checkBoxBlocoD;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBoxDRCST;
-        private System.Windows.Forms.CheckBox checkBoxBlocoH;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblPrecoCusto;
-        private System.Windows.Forms.ComboBox comboBoxPrecoCusto;
-        private System.Windows.Forms.DateTimePicker dateTimePickerDataInventario;
-        private System.Windows.Forms.Label lblDataInventario;
-        private System.Windows.Forms.ComboBox comboBoxMotivoGeracao;
         public System.Windows.Forms.TextBox txtLeiaute;
         public System.Windows.Forms.RadioButton radioFinalidadeSubst;
         public System.Windows.Forms.RadioButton radioFinalidadeOrig;
