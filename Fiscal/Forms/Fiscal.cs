@@ -36,6 +36,11 @@ namespace Fiscal
         {
             btnSair.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnSair.Width, btnSair.Height, 4, 4));
             btnContabilista.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnContabilista.Width, btnSair.Height, 4, 4));
+            using (var dc = new DataContext())
+            {
+                var emitente = dc.Emitente.FirstOrDefault();
+                this.Text += emitente.RazaoSocial;
+            }
         }
 
         [DllImport("DwmApi")]

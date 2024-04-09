@@ -123,7 +123,7 @@
             this.MaximizeBox = false;
             this.Name = "Fiscal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Fiscal SG Master | | SGBR SISTEMAS LTDA";
+            this.Text = "Fiscal SG Master | | ";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxSelecaoArquivo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();

@@ -34,18 +34,21 @@ namespace Fiscal
 
                 var vendaNFCe = dc.VendaNFCe.ToList().Where(nfc => (nfc.StatusEnvio == "Autorizado o uso da NF-e" || nfc.StatusEnvio == "Emitida em contingência")
                     && nfc.Inutilizada == null
+                    && nfc.CodCliente != 1
                     && nfc.ProtocoloCancelamento == null
                     && nfc.SAT == "NÃO"
                     && (nfc.DataEmissao >= dataInicial && nfc.DataEmissao <= dataFinal));
 
                 var vendaNFe = dc.VendaNFe.ToList().Where(nfe => nfe.Cancelada != "SIM"
                     && nfe.TipoOperacao == "1"
+                    && nfe.CodCliente != 1
                     && nfe.Protocolo != ""
                     && nfe.Denegada != "SIM"
                     && (nfe.DataEmissao >= dataInicial && nfe.DataEmissao <= dataFinal));
 
                 var compras = dc.Compra.ToList().Where(com => com.Confirmada == 1
-                && (com.DataEmissao >= dataInicial && com.DataEmissao <= dataFinal));
+                && com.CodFornecedor != 1
+                && (com.DataEmissao >= dataInicial && com.DataRecebimento <= dataFinal));
 
                 #region Select 0150
 
@@ -93,7 +96,7 @@ namespace Fiscal
 
                 var select0150compra = compras.Join(fornecedor, com => com.CodFornecedor, forn => forn.Controle, (com, forn) => new
                 {
-                    com.DataEmissao,
+                    com.DataRecebimento,
                     forn.Controle,
                     forn.RazaoSocial,
                     forn.CodigoPais,
@@ -310,13 +313,13 @@ namespace Fiscal
                     registro += c.Produto + "|";
                     registro += c.CodBarras + "|";
                     registro += "|";
-                    registro += c.UN + "|";
-                    registro += c.CodAplicacao + "|";
+                    registro += c.Unidade + "|";
+                    registro += c.CodAplicacaoProduto + "|";
                     registro += c.NCM + "|";
                     registro += "|";
                     registro += "|";
                     registro += "|";
-                    registro += c.AliquotaICMS + "|";
+                    registro += c.AliquotaICMSECF + "|";
                     registro += c.CEST + "|\n";
                 }
 
