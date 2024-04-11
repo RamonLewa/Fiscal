@@ -62,15 +62,15 @@ namespace Fiscal
 
         private void Contabilista_Load(object sender, EventArgs e)
         {
-            btnGravar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnGravar.Width, btnGravar.Height, 4, 4));
+            btnSair.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnSair.Width, btnSair.Height, 4, 4));
 
-            using (var dc = new DataContext()) 
+            using (var dc = new DataContext())
             {
                 IQueryable<DadoContabilista> dadoContabilistas = dc.DadoContabilista.AsQueryable().Where(d => d.Controle == 1);
 
                 var dadosContabilista = dadoContabilistas.FirstOrDefault();
 
-                if(dadosContabilista != null)
+                if (dadosContabilista != null)
                 {
                     txtNomeContador.Text = dadosContabilista.Nome;
                     txtCnpjEscritorio.Text = dadosContabilista.CNPJ;
@@ -87,10 +87,10 @@ namespace Fiscal
                     txtCodMunicipioIbge.Text = dadosContabilista.Codmunicipio;
                     txtCodContaAnalitica.Text = dadosContabilista.Codcontaanalitica;
                 }
-            }     
+            }
         }
 
-        private void btnGravar_Click(object sender, EventArgs e)
+        private void btnSair_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -11,7 +11,6 @@ namespace Fiscal
 {
     public partial class Fiscal : Form
     {
-
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
             (
@@ -31,7 +30,6 @@ namespace Fiscal
             this.DoubleBuffered = true;
         }
 
-        #region PersonalizaForm
         private void Form1_Load(object sender, EventArgs e)
         {
             btnSair.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnSair.Width, btnSair.Height, 4, 4));
@@ -42,6 +40,8 @@ namespace Fiscal
                 this.Text += emitente.RazaoSocial;
             }
         }
+
+        #region PersonalizaForm
 
         [DllImport("DwmApi")]
 

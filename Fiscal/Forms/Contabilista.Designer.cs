@@ -58,7 +58,7 @@
             this.txtCpf = new System.Windows.Forms.TextBox();
             this.txtCnpjEscritorio = new System.Windows.Forms.TextBox();
             this.txtNomeContador = new System.Windows.Forms.TextBox();
-            this.btnGravar = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
             this.groupBoxDadosContabilista.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -352,22 +352,22 @@
             this.txtNomeContador.Size = new System.Drawing.Size(344, 22);
             this.txtNomeContador.TabIndex = 0;
             // 
-            // btnGravar
+            // btnSair
             // 
-            this.btnGravar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(51)))), ((int)(((byte)(255)))));
-            this.btnGravar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnGravar.FlatAppearance.BorderSize = 0;
-            this.btnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGravar.ForeColor = System.Drawing.Color.White;
-            this.btnGravar.Image = global::Fiscal.Properties.Resources.confirmar;
-            this.btnGravar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGravar.Location = new System.Drawing.Point(445, 435);
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(92, 30);
-            this.btnGravar.TabIndex = 2;
-            this.btnGravar.Text = "Sair";
-            this.btnGravar.UseVisualStyleBackColor = false;
-            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
+            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(51)))), ((int)(((byte)(255)))));
+            this.btnSair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSair.FlatAppearance.BorderSize = 0;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.ForeColor = System.Drawing.Color.White;
+            this.btnSair.Image = global::Fiscal.Properties.Resources.confirmar;
+            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSair.Location = new System.Drawing.Point(445, 435);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(92, 30);
+            this.btnSair.TabIndex = 2;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // Contabilista
             // 
@@ -375,7 +375,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Fiscal.Properties.Resources.background2;
             this.ClientSize = new System.Drawing.Size(549, 476);
-            this.Controls.Add(this.btnGravar);
+            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.groupBoxDadosContabilista);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -407,7 +407,7 @@
         private System.Windows.Forms.TextBox txtCodMunicipioIbge;
         private System.Windows.Forms.TextBox txtCodContaAnalitica;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Button btnGravar;
+        private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Label lblNomeContador;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;

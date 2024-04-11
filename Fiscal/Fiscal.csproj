@@ -173,7 +173,7 @@
     <Compile Include="Tables\Compra.cs" />
     <Compile Include="Tables\Estoque.cs" />
     <Compile Include="Tables\Fornecedor.cs" />
-    <Compile Include="Functions.cs" />
+    <Compile Include="Classes\Functions.cs" />
     <Compile Include="Tables\Emitente.cs" />
     <Compile Include="Forms\Contabilista.cs">
       <SubType>Form</SubType>
